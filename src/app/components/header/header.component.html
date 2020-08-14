@@ -1,0 +1,99 @@
+<!--<header>
+    <div class="header">
+        <div class="header-logo">
+            <a routerLink="/"><img src="../../../assets/img/logo.png" alt="Logo"></a>
+        </div>
+    </div>
+</header>justify-content-end-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <div class="header">
+        <div class="header-logo">
+            <a routerLink="/"><img src="../../../assets/img/logo.png" alt="Logo"></a>
+        </div>
+    </div>
+    <ul class="navbar-nav ml-auto">
+        <!--<li class="nav-item">
+            <a href="#" class="primary-btn">
+                <i class="fa fa-plus"></i>
+                <span>Post Request</span>
+            </a>
+        </li>-->
+        <li class="nav-item">
+            <a *ngIf="!token" routerLink="/register" class="btn btn-primary">
+                <i class="fa fa-group"></i>
+                <span>Register</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a *ngIf="!token" routerLink="/login" class="btn btn-primary">
+                <i class="fa fa-key"></i>
+                <span>Login</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a *ngIf="token" routerLink="/subscribedrequests" (click)="showBadge=false">
+                <i class="fa fa-bell-o fa-2x">
+                    <span *ngIf="showBadge" class="badge badge-warning" 
+                    style="position:relative;font-size:10px;top:-12px;left:-10px;">New</span></i>
+            </a>
+        </li>
+        <li *ngIf="token" class="nav-item" placement="bottom-right" display="dynamic" ngbDropdown #dropdown="ngbDropdown">
+            <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                Action
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu">
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/postrequest" class="dropdown-item">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Post Request
+                </a>
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/subscriberequest" class="dropdown-item">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i> Subscribe Request
+                </a>
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/scheduleavailability" class="dropdown-item">
+                    <i class="fa fa-calendar" aria-hidden="true"></i> Schedule Availability
+                </a>
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/searchavailabilities" class="dropdown-item">
+                    <i class="fa fa-search" aria-hidden="true"></i> Search Availabilities
+                </a>
+                <!--<a (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
+                    <i class="fa fa-key" aria-hidden="true"></i> Logout
+                </a>
+                <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
+                    <i class="fa fa-key" aria-hidden="true"></i> Login
+                </a>
+                <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
+                    <i class="fa fa-group" aria-hidden="true"></i> Register
+                </a> -->
+            </div>
+        </li>
+        <li *ngIf="token" class="nav-item" placement="bottom-right" display="dynamic" ngbDropdown #dropdown="ngbDropdown">
+            <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                <i class="fa fa-user mr-1"></i>
+                <!--<span *ngIf="!token">Accounts</span>-->
+                <span *ngIf="user">{{ user.name }}</span>
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu">
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/posts" class="dropdown-item">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> My Requests
+                </a>
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/messages" class="dropdown-item">
+                    <i class="fa fa-comments" aria-hidden="true"></i> My Messages
+                </a>
+                <a *ngIf="user" (click)="closeDropdown(dropdown);collapse();" routerLink="{{'/users/' + user.userId}}" class="dropdown-item">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i> My Profile
+                </a>
+                <a (click)="closeDropdown(dropdown);collapse();" routerLink="/settings" class="dropdown-item">
+                    <i class="fa fa-cog" aria-hidden="true"></i> Account Settings
+                </a>
+                <a (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
+                    <i class="fa fa-key" aria-hidden="true"></i> Logout
+                </a>
+               <!-- <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
+                    <i class="fa fa-key" aria-hidden="true"></i> Login
+                </a>
+                <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
+                    <i class="fa fa-group" aria-hidden="true"></i> Register
+                </a> -->
+            </div>
+        </li>
+    </ul> 
+</nav>

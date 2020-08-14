@@ -1,0 +1,39 @@
+<div class="container   p-5">
+    <div class="col-8 offset-2">
+      <div class="card">
+        <h4 class="card-header">Subscribe Service Catagories & Location</h4>
+        <div class="card-body"> 
+          <div class="form-group">
+            <label>
+              <strong>Choose Catagories</strong>
+            </label>
+            <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" (selectedChange)="onSelectedChange($event)" *ngIf="!render">
+            </ngx-treeview>
+          </div> 
+          <form class="form" (ngSubmit)="subscribe()" [formGroup]="subscribeForm">
+            <!--<div class="form-group">
+              <label>
+                <strong>Choose Catagories</strong>
+              </label>
+              <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" (selectedChange)="onSelectedChange($event)">
+              </ngx-treeview>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>Choose Catagories</option>
+                  <option>Electronics</option>
+                  <option>Food</option>
+                  <option>Beverages</option>
+                </select>
+            </div>-->
+            <label for="location">Location</label>
+          <input class="form-control" type="text" id="location" formControlName="location" placeholder="Zip Code"/>
+          <label for="radius">Radius</label>
+          <input class="form-control" type="text" id="radius" formControlName="radius" placeholder="Radius"/>
+            <!--<input class="form-control mr-sm-2" type="text" placeholder="City">
+            <input class="form-control mr-sm-2" type="text" placeholder="Radius">-->
+            <button class="btn btn-dark" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+</div>

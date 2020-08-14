@@ -1,0 +1,13 @@
+.footer-div {
+    position: absolute;
+    background-color: black;
+    height: 4rem;
+    bottom: 0;
+    width: 100%
+}
+
+.footer-text {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}

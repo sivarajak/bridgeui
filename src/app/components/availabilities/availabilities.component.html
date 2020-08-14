@@ -1,0 +1,57 @@
+<div class="container  p-5">
+    <div class="col-10 offset-1">
+      <div class="card">
+        <h4 class="card-header">Service Provider's Availabilities</h4>
+        <div class="card-body">
+            <form>
+                <div class="form-group form-inline">
+                    Search For: <input class="form-control ml-2" type="text" [formControl]="filter" placeholder="Search.."/>
+                </div>
+            </form>
+                <div class="table-responsive" >
+                  <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>User</th>
+                            <th>Day</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Available For</th>  
+                            <th>Location</th> 
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let availability of obAvailabilities  | async; let avaiIndex = index">
+                      <ng-container *ngIf="availability.userId != loggedInUser.userId">
+                        <tr  *ngFor="let schedule of availability.schedules ; let i = index" >
+                          <td>
+                              <a href="{{'/users/' + availability.userId }}"><ngb-highlight [result]="availability.userNickName" [term]="filter.value"></ngb-highlight></a>                            
+                          </td>
+                          <td>
+                              <ngb-highlight [result]="schedule.day" [term]="filter.value"></ngb-highlight>
+                          </td>
+                          <td>
+                            {{ (schedule.startTime.hour | number:'2.0') + ":" + (schedule.startTime.minute | number:'2.0') }}
+                          </td>
+                          <td>
+                            {{ (schedule.endTime.hour | number:'2.0') + ":" + (schedule.endTime.minute | number:'2.0') }} 
+                          </td>
+                          <td>
+                              <ngb-highlight [result]="availability.availableFor" [term]="filter.value"></ngb-highlight>
+                          </td>
+                          <td>
+                              <ngb-highlight [result]="availability.location" [term]="filter.value"></ngb-highlight>
+                          </td>
+                          <td>
+                              <i (click)="messageUser(availability.userId)" class="fa fa-comments fa-2x"></i>
+                          </td>
+                        </tr>
+                      </ng-container>  
+                    </tbody>
+                  </table>
+                </div>
+
+        </div>
+    </div> 
+  </div>
+</div>

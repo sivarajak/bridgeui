@@ -1,0 +1,81 @@
+<div class="container  p-5">
+  <div class="col-8 offset-2">
+    <div class="card">
+      <h4 class="card-header">Availability Schedule</h4>
+      <div class="card-body">
+        <form novalidate class="form"  (ngSubmit)="save()" [formGroup]="scheduleForm">
+          <!--<input class="form-control mr-sm-2" formControlName="availableFor" type="textarea" placeholder="Available for">
+          <div formArrayName="schedules">
+            <div 
+                *ngFor="let schedule of schedules.controls; let i=index" [formGroupName]="i">
+                  <select class="form-control" id="day" formControlName="day">
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                    <option>Saturday</option>
+                    <option>Sunday</option>
+                  </select>
+                  <ngb-timepicker formControlName="starttime" ></ngb-timepicker>
+                  <ngb-timepicker formControlName="endtime" ></ngb-timepicker>
+                  <button (click)="removeSchedule(i)">-</button>
+                  
+            </div>
+            <button (click)="addSchedule()">+</button>
+          </div>-->
+          <label for="location">Location</label>
+          <input class="form-control" type="text" id="location" formControlName="location" placeholder="Pincode"/>
+          <br>
+          <label for="availableFor">Services Avail</label>
+          <textarea class="form-control" rows="2" id="availableFor" formControlName="availableFor" placeholder="Available for"></textarea>
+          <br>
+          <div formArrayName="schedules">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Action</th>
+                        <th>Day</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>   
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let schedule of schedules.controls; let i = index" [formGroupName]="i">
+                    <td (click)="removeSchedule(i)">
+                      <i class="fa fa-trash fa-2x"></i>
+                    </td>
+                    <td>
+                      <select class="form-control" id="{{'dayId' + i}}" formControlName="day">
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                      </select>
+                    </td>
+                    <td>
+                      <ngb-timepicker id="{{'starttime' + i}}"  formControlName="startTime" [spinners]="false" ></ngb-timepicker>
+                    </td>
+                    <td>
+                      <ngb-timepicker id="{{'endtime' + i}}"  formControlName="endTime" [spinners]="false"></ngb-timepicker>
+                    </td>
+                  </tr>   
+                  <tr>
+                    <td (click)="addSchedule()">
+                      <i class="fa fa-plus fa-2x"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button class="btn btn-dark" type="submit">Schedule/Update Availability</button>
+        </form>
+      </div>
+    </div> 
+  </div>
+</div>

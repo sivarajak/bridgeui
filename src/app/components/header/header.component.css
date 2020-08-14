@@ -1,0 +1,72 @@
+.header {
+    background-color: black;
+    max-height: 6.25rem;
+}
+
+.header-logo {
+    padding: 1.875rem;
+}
+/**
+.header-nav {
+	text-align: right;
+    padding: 7px 7px;
+    background-color: lightgray;
+}
+
+.header-menu-right {
+	display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    display: inline;
+}
+
+li {
+    float: left;
+}
+
+.header-menu-right .primary-btn {
+	margin-right: 0px;
+}
+
+.header__menu__right .login-btn {
+	font-size: 20px;
+	color: #ffffff;
+	height: 42px;
+	width: 42px;
+	border: 1px solid #ffffff;
+	border-radius: 50%;
+	line-height: 38px;
+	text-align: center;
+	display: inline-block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  */
+
